@@ -1,0 +1,7 @@
+{
+  "defaultTemplate": "z_Templates/Customer (template).md",
+  "folderTemplates": {
+    "03 - Customers": "z_Templates/Customer (template).md"
+  },
+  "ignorePaths": []
+}

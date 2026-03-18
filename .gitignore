@@ -1,0 +1,10 @@
+# only keep plugins configuration
+
+# exclude workspace cache
+workspace.json
+workspace-mobile.json
+plugins/obsidian-livesync/data.json
+
+# exclude OS settings and caches
+**/.trash/
+**/.DS_Store

@@ -1,0 +1,72 @@
+{
+  "presetFields": [],
+  "fileClassQueries": [
+    {
+      "name": "Staff",
+      "id": "1",
+      "query": "dv.pages('\"01 - Staff\"')",
+      "fileClassName": "MembroStaff"
+    },
+    {
+      "name": "Moduli",
+      "id": "2",
+      "query": "dv.pages('\"02 - Moduli\"')",
+      "fileClassName": "Modulo"
+    },
+    {
+      "name": "Customers",
+      "id": "3",
+      "query": "dv.pages('\"03 - Customers\"')",
+      "fileClassName": "Customer"
+    },
+    {
+      "name": "Tickets",
+      "id": "4",
+      "query": "dv.pages('\"04 - Tickets\"')",
+      "fileClassName": "Ticket"
+    },
+    {
+      "name": "Bandi",
+      "id": "5",
+      "query": "dv.pages('\"05 - Bandi\"')",
+      "fileClassName": "Bando"
+    },
+    {
+      "name": "Meetings",
+      "id": "6",
+      "query": "dv.pages('\"06 - Meetings\"')",
+      "fileClassName": "Meeting"
+    }
+  ],
+  "displayFieldsInContextMenu": true,
+  "globallyIgnoredFields": [],
+  "classFilesPath": "z_fileClasses/",
+  "isAutosuggestEnabled": true,
+  "fileClassAlias": "Categoria",
+  "settingsVersion": "5.0",
+  "firstDayOfWeek": 1,
+  "enableLinks": false,
+  "enableTabHeader": true,
+  "enableEditor": false,
+  "enableBacklinks": false,
+  "enableStarred": true,
+  "enableFileExplorer": true,
+  "enableSearch": false,
+  "enableProperties": true,
+  "tableViewMaxRecords": 20,
+  "frontmatterListDisplay": "asArray",
+  "fileClassExcludedFolders": [],
+  "showIndexingStatusInStatusBar": true,
+  "fileIndexingExcludedFolders": [],
+  "fileIndexingExcludedExtensions": [
+    ".excalidraw.md"
+  ],
+  "fileIndexingExcludedRegex": [],
+  "frontmatterOnly": true,
+  "showFileClassSelectInModal": false,
+  "chooseFileClassAtFileCreation": true,
+  "autoInsertFieldsAtFileClassInsertion": true,
+  "fileClassIcon": "package",
+  "isAutoCalculationEnabled": true,
+  "disableDataviewPrompt": false
+}
