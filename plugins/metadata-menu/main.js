@@ -25321,9 +25321,12 @@ var updateProps = async (plugin, view, file) => {
       id: key === plugin.settings.fileClassAlias ? `fileclass-field-${plugin.settings.fileClassAlias}` : (_b = (_a = plugin.fieldIndex.filesFields.get(file.path)) == null ? void 0 : _a.find((_f) => _f.isRoot() && _f.name === key)) == null ? void 0 : _b.id,
       type: key === plugin.settings.fileClassAlias ? "Select" : (_d = (_c = plugin.fieldIndex.filesFields.get(file.path)) == null ? void 0 : _c.find((_f) => _f.isRoot() && _f.name === key)) == null ? void 0 : _d.type
     };
-    item.valueEl.inert=true;
-    item.keyEl.inert=true;
-    item.keyInputEl.inert=true;
+    if (!(_d==null) || (key === plugin.settings.fileClassAlias)) {
+      item.keyEl.inert=true;
+      item.keyInputEl.inert=true;
+      item.valueEl.inert=true;
+      item.keyInputEl.addClass("metadata-menu-attribute-class-input");
+    }
     if (!pseudoField.id || !pseudoField.type)
       return;
     const node = note.getNodeForIndexedPath(pseudoField.id);
@@ -25341,6 +25344,18 @@ var updateProps = async (plugin, view, file) => {
       optionsList ? optionsList.createAndOpenNodeFieldModal(node) : null;
     });
     item.containerEl.insertBefore(btnContainer, item.valueEl);
+    
+    if (!(_d==null) || (key === plugin.settings.fileClassAlias)) {
+      const _btnContainer = item.containerEl.createDiv({ cls: "field-btn-container" });
+      if (isPropView(view))
+        _btnContainer.addClass("with-bottom-border");
+      const _btn = new import_obsidian79.ButtonComponent(_btnContainer);
+      _btn.setIcon("notebook-pen");
+      _btn.setClass("property-metadata-menu");
+      _btn.buttonEl.addClass("color-green");
+      _btnContainer.inert=true;
+      item.containerEl.insertBefore(_btnContainer, item.keyEl);
+    }
   });
   const actionContainer = view.metadataEditor.contentEl.find(".action-container") || view.metadataEditor.contentEl.createDiv({ cls: "action-container" });
   actionContainer.replaceChildren();
