@@ -1,12 +1,10 @@
 [
   "table-editor-obsidian",
-  "dataview",
   "obsidian-excel-to-markdown-table",
-  "various-complements",
   "obsidian-hider",
   "obsidian-livesync",
-  "templater-obsidian",
-  "buttons",
+  "dataview",
   "metadata-menu",
-  "metaedit"
+  "customjs",
+  "various-complements"
 ]

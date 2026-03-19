@@ -3447,7 +3447,7 @@ function displayValue4(managedField, container, onClicked) {
 function createDvField3(managedField, dv, p, fieldContainer, attrs = {}) {
   var _a;
   attrs.cls = "value-container";
-  fieldContainer.appendChild(dv.el("span", managedField.value || "", attrs));
+  fieldContainer.appendChild(dv.el("span", managedField.value || "-", attrs));
   const spacer = fieldContainer.createEl("div", { cls: "spacer-1" });
   const dropDownButton = fieldContainer.createEl("button");
   (0, import_obsidian9.setIcon)(dropDownButton, "down-chevron-glyph");
@@ -3673,7 +3673,7 @@ function createDvField4(managedField, dv, p, fieldContainer, attrs = {}) {
   var _a;
   attrs.cls = "value-container";
   const values = managedField.value;
-  const buildItem = (_value) => fieldContainer.appendChild(dv.el("span", _value || "", attrs));
+  const buildItem = (_value) => fieldContainer.appendChild(dv.el("span", _value || "-", attrs));
   if (Array.isArray(values))
     values.forEach((value) => buildItem(value));
   else
