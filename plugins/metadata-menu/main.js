@@ -19930,8 +19930,14 @@ async function addObjectListItem(managedField) {
   const mF = managedField;
   const value = managedField.value;
   const indexForNew = !value || value.length === 0 ? 0 : value.length;
-  if (mF.indexedPath)
-    await postValues(mF.plugin, [{ indexedPath: `${mF.indexedPath}[${indexForNew}]`, payload: { value: "" } }], mF.target, -1);
+  if (mF.indexedPath) {
+    const newIndexedPath = `${mF.indexedPath}[${indexForNew}]`;
+    await postValues(mF.plugin, [{ indexedPath: `${newIndexedPath}`, payload: { value: "" } }], mF.target, -1);
+    const note = await Note.buildNote(mF.plugin, mF.target);
+    const field2 = (_a = note.getExistingFieldForIndexedPath(newIndexedPath)) == null ? void 0 : _a.field;
+    const fileClass = (field2 == null ? void 0 : field2.fileClassName) ? mF.plugin.fieldIndex.fileClassesName.get(field2.fileClassName) : void 0;
+    insertMissingFields(mF.plugin, mF.target, -1, false, false, fileClass == null ? void 0 : fileClass.name, newIndexedPath);
+  }
 }
 
 // src/fields/Fields.ts
