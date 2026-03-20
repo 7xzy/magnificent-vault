@@ -1111,7 +1111,7 @@ function createDvField2(managedField, dv, p, fieldContainer, attrs = {}) {
   var _a, _b, _c;
   attrs.cls = "value-container";
   const editBtn = fieldContainer.createEl("button");
-  const fieldValue = dv.el("span", (_a = managedField.value) != null ? _a : "", attrs);
+  const fieldValue = dv.el("span", (_a = managedField.value) != null ? _a : "-", attrs);
   fieldContainer.appendChild(fieldValue);
   const spacer = fieldContainer.createDiv({ cls: "spacer-1" });
   if ((_b = attrs.options) == null ? void 0 : _b.alwaysOn)
