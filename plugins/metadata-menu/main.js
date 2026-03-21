@@ -871,7 +871,7 @@ function createDvField(managedField, dv, p, fieldContainer, attrs = {}) {
   var _a, _b;
   attrs.cls = "value-container";
   const editBtn = fieldContainer.createEl("button");
-  const fieldValue = dv.el("span", managedField.value || "", attrs);
+  const fieldValue = dv.el("span", managedField.value || "-", attrs);
   fieldContainer.appendChild(fieldValue);
   const spacer = fieldContainer.createDiv({ cls: "spacer-1" });
   if ((_a = attrs.options) == null ? void 0 : _a.alwaysOn)
@@ -4058,7 +4058,7 @@ function displayValue7(managedField, container, onClicked) {
 }
 function createDvField6(managedField, dv, p, fieldContainer, attrs = {}) {
   var _a;
-  fieldContainer.appendChild(dv.el("span", managedField.value || "", attrs));
+  fieldContainer.appendChild(dv.el("span", managedField.value || "-", attrs));
   const spacer = fieldContainer.createEl("div", { cls: "spacer-1" });
   const cycleBtn = fieldContainer.createEl("button");
   (0, import_obsidian12.setIcon)(cycleBtn, getIcon(managedField.type));
@@ -4657,7 +4657,7 @@ function actions9(plugin, field2, file, location, indexedPath) {
 function createDvField8(managedField, dv, p, fieldContainer, attrs = {}) {
   var _a;
   attrs.cls = "value-container";
-  const fieldValue = dv.el("span", managedField.value || "", attrs);
+  const fieldValue = dv.el("span", managedField.value || "-", attrs);
   const dateBtn = fieldContainer.createEl("button");
   (0, import_obsidian14.setIcon)(dateBtn, getIcon(managedField.type));
   const spacer = fieldContainer.createDiv({ cls: "spacer-1" });
@@ -7070,7 +7070,7 @@ function displayValue24(managedField, container, onClicked) {
 function createDvField18(managedField, dv, p, fieldContainer, attrs = {}) {
   var _a, _b;
   attrs.cls = "value-container";
-  const fieldValue = dv.el("span", managedField.value || "", attrs);
+  const fieldValue = dv.el("span", managedField.value || "-", attrs);
   fieldContainer.appendChild(fieldValue);
   const editBtn = fieldContainer.createEl("button");
   const spacer = fieldContainer.createDiv({ cls: "spacer-1" });
@@ -13421,7 +13421,7 @@ function displayValue25(managedField, container, onClicked) {
 function createDvField19(managedField, dv, p, fieldContainer, attrs = {}) {
   var _a, _b;
   attrs.cls = "value-container";
-  const fieldValue = dv.el("span", managedField.value || "", attrs);
+  const fieldValue = dv.el("span", managedField.value || "-", attrs);
   fieldContainer.appendChild(fieldValue);
   const editBtn = fieldContainer.createEl("button");
   const spacer = fieldContainer.createDiv({ cls: "spacer-1" });
