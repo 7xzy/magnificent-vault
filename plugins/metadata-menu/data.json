@@ -36,6 +36,12 @@
       "id": "6",
       "query": "dv.pages('\"06 - Meetings\"')",
       "fileClassName": "Meeting"
+    },
+    {
+      "name": "Altro",
+      "id": "7",
+      "query": "/^[^0].*$/",
+      "fileClassName": "Altro"
     }
   ],
   "displayFieldsInContextMenu": true,

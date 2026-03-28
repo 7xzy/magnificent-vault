@@ -14948,6 +14948,9 @@ var FileClassQuery = class {
   //@ts-ignore
   getResults(api) {
     try {
+      if (this.query.startsWith("/")) {
+        return [];
+      }
       return new Function("dv", `return ${this.query}`)(api);
     } catch (error) {
       new import_obsidian35.Notice(` for <${this.name}>. Check your settings`);
@@ -25839,28 +25842,35 @@ Install and enable dataview and dataviewJS for extra Metadata Menu features
           var class_rule_found = false;
           this.settings.fileClassQueries.forEach((sfcq) => {
             const fcq = new FileClassQuery_default(sfcq.name, sfcq.id, sfcq.query, sfcq.fileClassName);
-            if (/^dv.pages\('"[^"]*"'\)$/.test(fcq.query)) {
-              const queryPath = fcq.query.match(/^dv.pages\('"([^"]*)"'\)$/)[1];
-              if (queryPath == file.path.split("/").slice(0, -1).join("/")) {
-                const value = fcq.fileClassName;
-                const fileClassAlias = this.settings.fileClassAlias;
-                let this_plugin = this;
-                postValues(
-                  this,
-                  [{ indexedPath: `fileclass-field-${fileClassAlias}`, payload: { value: value } }],
-                  file,
-                  -1
-                ).then(
-                  function(results){
-                    if (this_plugin.settings.autoInsertFieldsAtFileClassInsertion) {
-                      this_plugin.fieldIndex.indexFields().then(function(results){
-                        insertMissingFields(this_plugin, file.path, -1);
-                      })
-                    }
+            let dvpq = /^dv.pages\('"[^"]*"'\)$/.test(fcq.query);
+            let regq = /^\/.+\/$/.test(fcq.query);
+            let match = false;
+            if (dvpq) {
+              let queryPath = fcq.query.match(/^dv.pages\('"([^"]*)"'\)$/)[1];
+              match = queryPath == file.path.split("/").slice(0, -1).join("/");
+            } else if (regq) {
+              let regex = new RegExp(fcq.query.slice(1, -1));
+              match = regex.test(file.path);
+            }
+            if (match) {
+              const value = fcq.fileClassName;
+              const fileClassAlias = this.settings.fileClassAlias;
+              let this_plugin = this;
+              postValues(
+                this,
+                [{ indexedPath: `fileclass-field-${fileClassAlias}`, payload: { value: value } }],
+                file,
+                -1
+              ).then(
+                function(results){
+                  if (this_plugin.settings.autoInsertFieldsAtFileClassInsertion) {
+                    this_plugin.fieldIndex.indexFields().then(function(results){
+                      insertMissingFields(this_plugin, file.path, -1);
+                    })
                   }
-                );
-                class_rule_found = true;
-              }
+                }
+              );
+              class_rule_found = true;
             }
           });
           // check if the file has a class now
