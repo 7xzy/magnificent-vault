@@ -7,5 +7,7 @@
   "customjs",
   "various-complements",
   "templater-obsidian",
+  "obsidian-meta-bind-plugin",
+  "js-engine",
   "metadata-menu"
 ]
