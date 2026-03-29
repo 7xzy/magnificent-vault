@@ -1,6 +1,6 @@
 {
   "jsFiles": "",
-  "jsFolder": "z_Scripts",
+  "jsFolder": "z_Scripts/customJS",
   "startupScriptNames": [],
   "registeredInvocableScriptNames": [],
   "rerunStartupScriptsOnFileChange": false

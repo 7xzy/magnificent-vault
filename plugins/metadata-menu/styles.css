@@ -2105,6 +2105,13 @@
 
 
 /* customizations */
+.metadata-property-value {
+    pointer-events: none;
+}
+
+.metadata-link-inner{
+    pointer-events: auto;
+}
 
 .color-green {
   color: var(--color-green)!important;

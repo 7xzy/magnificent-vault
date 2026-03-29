@@ -23054,7 +23054,7 @@ function updatePropertiesPane(propertiesEl, file, app2, plugin) {
     for (let i = 0; i < nodes.length; ++i) {
       const el = nodes[i];
       const linkText = el.textContent;
-      const keyEl = (_e = (_d = (_c = (_b = el == null ? void 0 : el.parentElement) == null ? void 0 : _b.parentElement) == null ? void 0 : _c.parentElement) == null ? void 0 : _d.parentElement) == null ? void 0 : _e.children[0].children[1];
+      const keyEl = (_e = (_d = (_c = (_b = el == null ? void 0 : el.parentElement) == null ? void 0 : _b.parentElement) == null ? void 0 : _c.parentElement) == null ? void 0 : _d.parentElement) == null ? void 0 : _e.querySelector(".metadata-property-key").children[1];
       const key = keyEl.value;
       const listOfLinks = frontmatter[key];
       let foundS = null;
@@ -23082,7 +23082,7 @@ function updatePropertiesPane(propertiesEl, file, app2, plugin) {
     for (let i = 0; i < singleNodes.length; ++i) {
       const el = singleNodes[i];
       const linkText = el.textContent;
-      const keyEl = (_h = (_g = (_f = el == null ? void 0 : el.parentElement) == null ? void 0 : _f.parentElement) == null ? void 0 : _g.parentElement) == null ? void 0 : _h.children[0].children[1];
+      const keyEl = (_h = (_g = (_f = el == null ? void 0 : el.parentElement) == null ? void 0 : _f.parentElement) == null ? void 0 : _g.parentElement) == null ? void 0 : _h.querySelector(".metadata-property-key").children[1];
       const key = keyEl.value;
       const link = frontmatter[key];
       if (!link) {
@@ -25332,8 +25332,10 @@ var updateProps = async (plugin, view, file) => {
     };
     if (!(_d==null) || (key === plugin.settings.fileClassAlias)) {
       item.keyEl.inert=true;
-      item.keyInputEl.inert=true;
-      item.valueEl.inert=true;
+      if (getIcon(pseudoField.type)!="link") {
+        item.keyInputEl.inert=true;
+        item.valueEl.inert=true;
+      }
       item.keyInputEl.addClass("metadata-menu-attribute-class-input");
     }
     if (!pseudoField.id || !pseudoField.type)
