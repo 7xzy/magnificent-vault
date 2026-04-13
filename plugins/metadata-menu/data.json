@@ -38,6 +38,12 @@
       "fileClassName": "Meeting"
     },
     {
+      "name": "Altri TIckets",
+      "id": "8",
+      "query": "dv.pages('\"07 - Altri Tickets\"')",
+      "fileClassName": "AltroTicket"
+    },
+    {
       "name": "Altro",
       "id": "7",
       "query": "/^[^0].*$/",
